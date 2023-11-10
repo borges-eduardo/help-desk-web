@@ -15,4 +15,8 @@ export class ChamadoService {
   findAll(page?: number, size?: number): Observable<Page<Chamado>> {
     return this.http.get<Page<Chamado>>(`${API_CONFIG.baseUrl}/chamados?page=${page ?? 0}&size=${size ?? 10}`)
   }
+
+  create(chamado: Chamado): Observable<Chamado> {
+    return this.http.post<Chamado>(`${API_CONFIG.baseUrl}/chamados`, chamado)
+  }
 }
